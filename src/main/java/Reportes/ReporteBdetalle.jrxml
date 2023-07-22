@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="680" pageHeight="555" orientation="Landscape" columnWidth="680" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="88388f91-d613-4100-bdc4-d9e360b73a63">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID_DET_BOL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT b.cantidad,p.nomPro,b.precio,(b.precio* b.cantidad) as importe FROM bdetalle b
+inner join producto p on (b.idPro=p.idPro)
+WHERE b.idBol=$P{ID_DET_BOL}]]>
+	</queryString>
+	<field name="cantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomPro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="importe" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ccbe4d8e-8016-4138-ab00-1c6f3d6924ea"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="100" y="0" width="263" height="20" uuid="61372cd4-2af9-4e60-a9ff-311449f5df7a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="363" y="0" width="148" height="20" uuid="c5d96b0d-fedf-4056-b1c9-57212189dc51"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="511" y="0" width="169" height="20" uuid="a8398112-9787-4496-b4be-9a1ed49424f1"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="8e0a285d-b88f-4407-81be-c653e2208199"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="1" width="263" height="20" uuid="c6281114-7e70-48fc-baf2-f78a2bcc27dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomPro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="363" y="1" width="148" height="20" uuid="90abe99b-fea9-41ef-8f10-a0637f30a3b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="511" y="1" width="169" height="20" uuid="903aa44c-bde7-47a7-a97c-394180fd4e4c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

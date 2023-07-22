@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="720" pageHeight="595" orientation="Landscape" columnWidth="680" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e36d0951-862a-41b7-bc03-250eb414d6f7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID_PRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT p.idPre,concat(c.numCli,' - ',c.nomCli) as cliente ,p.fecha,p.total FROM presupuesto p
+INNER JOIN cliente c ON (p.idCli=c.idCli)
+WHERE p.idPre=$P{ID_PRE}]]>
+	</queryString>
+	<field name="idPre" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente" class="java.lang.String"/>
+	<field name="fecha" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="135" splitType="Stretch">
+			<staticText>
+				<reportElement x="493" y="33" width="157" height="20" uuid="f21bfca4-72fe-43bd-9518-19168643b4e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Presupuesto N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="91" width="100" height="20" uuid="8057def3-010f-4a55-9b49-a6f67a479106"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="10" width="400" height="43" uuid="a3b9b272-0051-4d51-b422-8bcd299dfcea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Britannic Bold" size="36"/>
+				</textElement>
+				<text><![CDATA[R y J Computer S.A.C.]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="132" y="91" width="337" height="20" uuid="401a7d13-bf7e-417c-bf2f-067b8a1f1f35"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="493" y="91" width="157" height="20" uuid="01fe142b-6a88-4c16-a232-76691b027598"/>
+			</rectangle>
+			<textField>
+				<reportElement x="493" y="53" width="157" height="20" uuid="7abce0df-ad60-4fb1-90af-5d307eefaabc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idPre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="91" width="324" height="20" uuid="031b954e-85e3-4a37-9bb6-3fd1638c882a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="91" width="157" height="20" forecolor="#FF0000" uuid="faae25be-954b-44e6-b9f5-15c3ef693ac6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b28665cb-3a41-4317-bf75-ea9ecf5a9256"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="100" y="0" width="263" height="20" uuid="bb8ddd3e-d272-4790-b36e-79c7da9860a9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="363" y="0" width="148" height="20" uuid="12aa5932-3d0c-4f03-9eb2-5a607f86ae31"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="511" y="0" width="169" height="20" uuid="3ceedb36-f3db-40c2-af22-cba7524cf23d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="511" y="0" width="169" height="20" forecolor="#3300FF" uuid="f24b79d9-d5a6-4731-b230-af7b2753727b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="263" height="20" forecolor="#3300FF" uuid="639489c2-71cc-497b-ab71-e51f3871acdd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#3300FF" uuid="ddf60ce1-d111-4a64-aa0b-8e94412fa49b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="0" width="148" height="20" forecolor="#3300FF" uuid="b90e9c3e-7a52-4136-8510-73e651673843"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="680" height="12" uuid="4c486153-dc13-4a66-86dc-00e04b648a72"/>
+				<subreportParameter name="ID_DET_PRE">
+					<subreportParameterExpression><![CDATA[$P{ID_PRE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\usuario\\Desktop\\PROYECTOS APACHE\\webSoportePC\\src\\main\\java\\Reportes\\ReportePdetalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="49" splitType="Stretch">
+			<rectangle>
+				<reportElement x="363" y="0" width="148" height="20" uuid="c8c4fcb0-7d87-4fdf-a5c8-1331b2b8deff"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="511" y="0" width="169" height="20" uuid="3dbb22be-76e1-4b4a-8e77-089eb8a1ddc2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="363" y="0" width="148" height="20" forecolor="#0000FF" uuid="97b6a817-7730-47e4-bd05-cd211fe552f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="511" y="0" width="169" height="20" forecolor="#0000FF" uuid="db35e365-6fe1-41b8-a9f6-ed10427d2b8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="511" y="0" width="169" height="20" uuid="440c1f02-f0aa-46c9-93e2-1756cd1146f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
